@@ -28,7 +28,7 @@ sub process_message {
 	my ($server, $msg, $target) = @_;
 	my $command = 0;
 
-	return unless $target =~ /^#(lolfut|catenadev)/;
+	return unless $target =~ /^#(wijs|wijsneuzen|catenadev)/;
 	if ($msg =~ m/^!bot\s(.+?)$/)
 	{
 		$command = $1;
