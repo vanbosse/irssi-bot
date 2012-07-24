@@ -1,8 +1,8 @@
 # == WHAT
-# Respond to words that rhyme with "Flash".
+# All around bot.
 #
 # == WHO
-# Jan Moesen, 2012
+# Jeroen Van den Bossche, 2012
 #
 # == INSTALL
 # Save it in ~/.irssi/scripts/ and do /script load bot.pl
