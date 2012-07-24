@@ -65,7 +65,7 @@ sub process_message {
 				last;
 			}
 		}
-		$output = "iBood: $title. (\x{20AC}$price)";
+		$output = "iBood: $title. (\x{20AC}$price) $url";
 	}
 
 	$server->command("msg $target $output");
