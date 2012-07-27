@@ -26,12 +26,15 @@ $VERSION = '0.1';
 
 sub process_message {
 	my ($server, $msg, $target) = @_;
-	my $command = 0;
+	my @command = 0;
+	my ($command, $argument) = 0;
 
-	return unless $target =~ /^#(wijs|wijsneuzen|catenadev)/;
+	return unless $target =~ /^#(forkcms|lolfut|wijs|wijsneuzen|catenadev)/;
 	if ($msg =~ m/^!bot\s(.+?)$/)
 	{
-		$command = $1;
+		@command = split(' ', $msg);
+		$command = @command[1];
+		$argument = @command[2];
 	}
 	return unless $command;
 	return if $msg eq $command;
@@ -39,7 +42,7 @@ sub process_message {
 	my $output = "Computer says no, try \"!bot help\".";
 	if ($command eq "help")
 	{
-		$output = "Commands: ibood";
+		$output = "Commands: ibood, slap <user>";
 	}
 	elsif ($command eq "ibood")
 	{
@@ -66,6 +69,10 @@ sub process_message {
 			}
 		}
 		$output = "iBood: $title. (\x{20AC}$price) $url";
+	}
+	elsif ($command eq "slap" && $argument)
+	{
+		$output = "$argument got slapped around a bit with a large trout.";
 	}
 
 	$server->command("msg $target $output");
